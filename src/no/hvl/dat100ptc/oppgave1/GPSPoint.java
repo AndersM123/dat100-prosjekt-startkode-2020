@@ -1,5 +1,4 @@
 package no.hvl.dat100ptc.oppgave1;
-
 import no.hvl.dat100ptc.TODO;
 
 public class GPSPoint {
@@ -9,7 +8,7 @@ public class GPSPoint {
 	private double longitude;
 	private double elevation;
 	
-	//Heisann
+	
 		
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
@@ -72,7 +71,7 @@ public class GPSPoint {
 	
 	public String toString() {
 		
-		String str= "Time: " + time + "Breddegrader: " + latitude + "lengdegrader" + longitude + "høydemeter: " + elevation;
+		String str= time  + " (" + latitude + "," + longitude + ") " + elevation + "\n";
 		
 		return str;
 
