@@ -4,15 +4,15 @@ public class TODO {
 
 	public static String method() {
 		
-		String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+		String toString = Thread.currentThread().getStackTrace()[2].getMethodName();
 		
-		return "tisstass " + methodName + " er ikke implementert";
+		return "toString" + toString + " er ikke implementert";
 	}
 	
 	
-	public static String construtor(String className) {
+	public static String construtor(String GPSpoint) {
 				
-	   return "Konstruktøren for klassen " + className + " er ikke implementert";
+	   return "Konstruktøren for klassen" + GPSpoint + " er ikke implementert";
 		
 	}
 
