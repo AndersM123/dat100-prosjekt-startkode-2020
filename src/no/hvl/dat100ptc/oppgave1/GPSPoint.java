@@ -6,16 +6,17 @@ public class GPSPoint {
 
 	private int time;
 	private double latitude;
-	private double longtitude;
+	private double longitude;
 	private double elevation;
 	
 	//Heisann
 		
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
-		// TODO - konstruktur
-
-		throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
+		this.time = time;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.elevation =elevation;
 
 	}
 
