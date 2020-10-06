@@ -8,6 +8,8 @@ public class GPSPoint {
 	private double latitude;
 	private double longtitude;
 	private double elevation;
+	
+	//Heisann
 		
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
