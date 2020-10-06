@@ -6,7 +6,7 @@ public class TODO {
 		
 		String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
 		
-		return "Metoden " + methodName + " er ikke implementert";
+		return "noe " + methodName + " er ikke implementert";
 	}
 	
 	
