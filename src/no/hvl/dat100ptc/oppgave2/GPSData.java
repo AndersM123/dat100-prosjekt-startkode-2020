@@ -16,8 +16,7 @@ public class GPSData {
 
 	public GPSPoint[] getGPSPoints() {
 		return this.gpspoints;
-	}
-	
+	}	
 	protected boolean insertGPS(GPSPoint gpspoint) {
 
 		boolean inserted = false;
@@ -45,13 +44,14 @@ public class GPSData {
 
 		System.out.println("====== Konvertert GPS Data - START ======");
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
 		
-		// System.out.println("====== Konvertert GPS Data - SLUTT ======");
+		for (GPSPoint p : gpspoints) {
+			
+			System.out.println(p.toString());
+		
+		}
+		
+	
 
 	}
 }
