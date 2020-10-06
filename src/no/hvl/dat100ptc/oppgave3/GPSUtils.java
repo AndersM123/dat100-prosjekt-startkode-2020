@@ -24,32 +24,27 @@ public class GPSUtils {
 
 	public static double findMin(double[] da) {
 
-		double min;
+		double min = 0;
+		
+		for (double findmin : da) {
+			min += findmin;
+			
+		}
+		
+		return  min;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUT
 
 	}
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
-
-		// TODO - START
+	
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		return getLatitudes(gpspoints);
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		return getLongitudes(gpspoints);
 
 	}
 
@@ -60,11 +55,9 @@ public class GPSUtils {
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		for (GPSPoint p : {
+			
+		}
 
 	}
 
