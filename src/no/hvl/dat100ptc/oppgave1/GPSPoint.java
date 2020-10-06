@@ -72,13 +72,10 @@ public class GPSPoint {
 	
 	public String toString() {
 		
-		String str;
+		String str= "Time: " + time + "Breddegrader: " + latitude + "lengdegrader" + longitude + "høydemeter: " + elevation;
 		
-		// TODO - start
+		return str;
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - slutt
 		
 	}
 }
