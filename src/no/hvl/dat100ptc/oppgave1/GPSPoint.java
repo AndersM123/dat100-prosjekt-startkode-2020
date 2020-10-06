@@ -36,7 +36,7 @@ public class GPSPoint {
 
 	public double getLatitude() {
 		
-		
+		return latitude;
 	}
 
 	public void setLatitude(double latitude) {
