@@ -47,7 +47,7 @@ public class GPSPoint {
 
 	public double getLongitude() {
 		
-		
+		return longitude;
 		
 	}
 
@@ -59,7 +59,7 @@ public class GPSPoint {
 
 	public double getElevation() {
 		
-		
+		return elevation;
 		
 	}
 
