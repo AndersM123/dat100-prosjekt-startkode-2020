@@ -9,9 +9,9 @@ public class GPSUtils {
 
 	public static double findMax(double[] da) {
 
-		double max; 
+		double max = da[0]; 
 		
-		max = da[0];
+	//	max = da[0];
 		
 		for (double d : da) {
 			if (d > max) {
@@ -24,27 +24,47 @@ public class GPSUtils {
 
 	public static double findMin(double[] da) {
 
-		double min = 0;
+		double min = da[0];
 		
-		for (double findmin : da) {
-			min += findmin;
-			
+	//	min = da[0];
+		
+		for (double d : da) {
+			if (d < min) {
+				min = d;
+			}
 		}
 		
-		return  min;
+		return min;
 
 
 	}
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 	
+		double LATtab [] = new double [gpspoints.length];
+		int i = 0;	
 		
-		return getLatitudes(gpspoints);
+		for (GPSPoint l : gpspoints) {
+			LATtab[i] = l.getLatitude();
+			i++;
+		}
+		
+		return LATtab;
+				
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
 
-		return getLongitudes(gpspoints);
+		
+		double LONGtab [] = new double [gpspoints.length];
+		int i = 0;	
+		
+		for (GPSPoint l : gpspoints) {
+			LONGtab[i] = l.getLongitude();
+			i++;
+		}
+		
+		return LONGtab;
 
 	}
 
@@ -55,9 +75,11 @@ public class GPSUtils {
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
 
-		for (GPSPoint p : {
-			
-		}
+		latitude1 = gpspoint1.getLatitude();
+		longitude1 = gpspoint1.getLatitude();
+		latitude2 = gpspoint2.getLatitude();
+		longitude2 = gpspoint2.getLongitude();
+		
 
 	}
 
