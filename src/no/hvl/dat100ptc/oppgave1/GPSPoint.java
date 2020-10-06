@@ -30,7 +30,7 @@ public class GPSPoint {
 
 	public void setTime(int time) {
 				
-		
+		this.time=time;
 
 	}
 
