@@ -41,6 +41,7 @@ public class GPSPoint {
 
 	public void setLatitude(double latitude) {
 		
+		this.latitude = latitude;
 		
 		
 	}
@@ -52,7 +53,7 @@ public class GPSPoint {
 	}
 
 	public void setLongitude(double longitude) {
-		
+		this.longitude = longitude;
 		
 		
 	}
@@ -65,7 +66,7 @@ public class GPSPoint {
 
 	public void setElevation(double elevation) {
 		
-		
+		this.elevation = elevation;
 		
 	}
 	
