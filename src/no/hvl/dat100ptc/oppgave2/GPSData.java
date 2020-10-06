@@ -1,6 +1,5 @@
 package no.hvl.dat100ptc.oppgave2;
 
-import no.hvl.dat100.varelager.Vare;
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
@@ -33,11 +32,14 @@ public class GPSData {
 		return inserted;	
 	}
 
-	public boolean insert(int time, double latitude, double longitude, double elevation) {
+	public boolean insert(String time, String latitude, String longitude, String elevation) {
+
 		
-		GPSPoint gpspoint = new GPSPoint(time, latitude, longitude, elevation);
+		//TODO Implementer etter konvertering.
 		
-		return insertGPS(gpspoint);	
+//		GPSPoint gpspoint = new GPSPoint(time, latitude, longitude, elevation);
+//		
+//		return insertGPS(gpspoint);	
 	}
 
 	public void print() {
