@@ -52,5 +52,6 @@ public class GPSData {
 		
 		// System.out.println("====== Konvertert GPS Data - SLUTT ======");
 
+		
 	}
 }
