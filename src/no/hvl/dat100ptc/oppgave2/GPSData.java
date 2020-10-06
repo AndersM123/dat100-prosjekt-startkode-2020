@@ -32,13 +32,10 @@ public class GPSData {
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
-
+	
+		GPSPoint gpspoint = GPSDataConverter.convert(time, latitude, longitude, elevation);
 		
-		//TODO Implementer etter konvertering.
-		
-//		GPSPoint gpspoint = new GPSPoint(time, latitude, longitude, elevation);
-//		
-//		return insertGPS(gpspoint);	
+		return insertGPS(gpspoint);	
 	}
 
 	public void print() {
@@ -57,3 +54,4 @@ public class GPSData {
 		
 	}
 }
+

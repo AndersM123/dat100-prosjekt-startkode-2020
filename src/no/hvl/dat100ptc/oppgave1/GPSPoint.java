@@ -15,9 +15,11 @@ public class GPSPoint {
 		this.time = time;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.elevation =elevation;
+		this.elevation = elevation;
 
 	}
+
+	
 
 	// TODO - get/set metoder
 	public int getTime() {
