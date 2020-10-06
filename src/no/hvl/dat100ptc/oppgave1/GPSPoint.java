@@ -18,7 +18,6 @@ public class GPSPoint {
 		this.elevation = elevation;
 
 	}
-
 	
 
 	// TODO - get/set metoder
@@ -77,6 +76,5 @@ public class GPSPoint {
 		
 		return str;
 
-		
 	}
 }

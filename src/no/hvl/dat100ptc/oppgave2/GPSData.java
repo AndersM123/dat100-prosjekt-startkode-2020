@@ -19,16 +19,15 @@ public class GPSData {
 	}	
 	protected boolean insertGPS(GPSPoint gpspoint) {
 
-		boolean inserted = false;
 		if (antall < gpspoints.length) {
 			gpspoints[antall] = gpspoint;
 			antall++;
-			inserted = true;
+			return true;
 		}
-		else {
+		else 
 			System.out.println("Ikke nok plass!");
-		}
-		return inserted;	
+		
+		return false;
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
@@ -48,10 +47,8 @@ public class GPSData {
 			System.out.println(p.toString());
 		
 		}
-		
-	
-
-		
+			
 	}
+	
 }
 
