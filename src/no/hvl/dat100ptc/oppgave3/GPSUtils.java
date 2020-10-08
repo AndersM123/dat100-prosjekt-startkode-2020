@@ -68,44 +68,35 @@ public class GPSUtils {
 
 	public static double distance(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
-		double d;
-		double latitude1, longitude1, latitude2, longitude2;
-		
-		latitude1 = gpspoint1.getLatitude();
-		longitude1 = gpspoint1.getLatitude();
-		latitude2 = gpspoint2.getLatitude();
-		longitude2 = gpspoint2.getLongitude();
-		
-		double deltaLat = toRadians(latitude2 - latitude1);
-		
-		double deltaLong = toRadians(longitude2 - longitude1);
-		
-		double a = pow(sin(deltaLat/2.0), 2) * pow(sin(deltaLong/2.0), 2)
-				* cos(toRadians(latitude1)) * cos(toRadians(latitude2));
-					 
-		
-		double c = 2.0 * (atan2(sqrt(a), sqrt(1-a)));
-		
-		d = R * c;
-		
-		return d;
-		
+        double d;
+        double latitude1, longitude1, latitude2, longitude2;
 
-	}
+        // TODO - START
+        latitude1 = gpspoint1.getLatitude();
+        latitude2 = gpspoint2.getLatitude();
+        longitude1 = gpspoint1.getLongitude();
+        longitude2 = gpspoint2.getLongitude();
+        
+        double deltaLat = toRadians(latitude2 - latitude1);
+        double deltaLong = toRadians(longitude2 - longitude1);
+        
+        double a = pow(sin(deltaLat/2.0),2) + cos(toRadians(latitude1)) * cos(toRadians(latitude2)) 
+                * pow(sin(deltaLong/2.0),2);
+        
+        double c = 2.0 * atan2(sqrt(a), sqrt(1-a));
+        d = R * c;
+        return d;
+        
+    }
 
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
-		int secs = gpspoint2.getTime() - gpspoint1.getTime();
+		int time = gpspoint2.getTime() - gpspoint1.getTime();		
+		double meter = (distance(gpspoint1, gpspoint2));
 		
-		double timer = secs/3600;
-		
-		//deler på 1000 pga returnert distance er i meter
-		double km = (distance(gpspoint1, gpspoint2))/1000;
-		
-		double speed = km/timer;
+		double speed = (meter/time)*3.6;
 		
 		return speed;
-
 		
 
 	}
