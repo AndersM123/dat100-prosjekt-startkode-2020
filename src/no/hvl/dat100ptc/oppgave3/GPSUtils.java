@@ -77,14 +77,13 @@ public class GPSUtils {
 		longitude2 = gpspoint2.getLongitude();
 		
 		double deltaLat = toRadians(latitude2 - latitude1);
-		
 		double deltaLong = toRadians(longitude2 - longitude1);
 		
-		double a = pow(sin(deltaLat/2.0), 2) * pow(sin(deltaLong/2.0), 2)
-				* cos(toRadians(latitude1)) * cos(toRadians(latitude2));
+		double a = pow(sin(deltaLat/2.0),2) + cos(toRadians(latitude1)) * cos(toRadians(latitude2))
+				* pow(sin(deltaLong/2.0),2);
 					 
 		
-		double c = 2.0 * (atan2(sqrt(a), sqrt(1-a)));
+		double c = 2.0 * atan2(sqrt(a), sqrt(1-a));
 		
 		d = R * c;
 		
