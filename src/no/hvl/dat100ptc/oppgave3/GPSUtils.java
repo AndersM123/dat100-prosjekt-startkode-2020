@@ -71,7 +71,6 @@ public class GPSUtils {
         double d;
         double latitude1, longitude1, latitude2, longitude2;
 
-        // TODO - START
         latitude1 = gpspoint1.getLatitude();
         latitude2 = gpspoint2.getLatitude();
         longitude1 = gpspoint1.getLongitude();
@@ -97,50 +96,39 @@ public class GPSUtils {
 		double speed = (meter/time)*3.6;
 		
 		return speed;
-		
-
 	}
 
 	public static String formatTime(int secs) {
 
-		String timestr;
+		String utskriftStr;
 		String TIMESEP = ":";
-		String timstr;
-		String minstr;
-		String sekstr;
 		
 		int tim = (secs/3600);
         int min = (secs%3600/60);
         int sek = (secs%3600%60);
+        
+        String timStr = "" + tim;
+		String minStr = "" + min;
+		String sekStr = "" + sek;
 		
         if (tim < 10) {
-        	timstr = "0" + tim;
+        	timStr = "0" + tim;
         }
-        else {
-        	timstr = "" + tim;
-        }
-        
+              
         if (min < 10) {
-        	minstr = "0" + min;
+        	minStr = "0" + min;
         }
-        else {
-        	minstr = "" + min;
-        }
-        
+            
         if (sek < 10) {
-        	sekstr = "0" + sek;
+        	sekStr = "0" + sek;
         }
-        else {
-        	sekstr = "" + sek;
-        }
-        
-		timestr = "  " + timstr + TIMESEP + minstr + TIMESEP + sekstr;
+          
+		utskriftStr = "  " + timStr + TIMESEP + minStr + TIMESEP + sekStr;
 		
-		return timestr;
-		
-		
+		return utskriftStr;		
 
 	}
+	
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
