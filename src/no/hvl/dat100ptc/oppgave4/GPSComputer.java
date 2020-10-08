@@ -31,12 +31,11 @@ public class GPSComputer {
 
 		double distance = 0;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
+		for (int i = 0; i < gpspoints.length - 1; i++) {
+			
+			distance = distance + GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+		}
+		return distance;
 	}
 
 	// beregn totale hÃ¸ydemeter (i meter)
@@ -44,30 +43,39 @@ public class GPSComputer {
 
 		double elevation = 0;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		for (int i = 0; i < gpspoints.length - 1; i++) {
+			if (gpspoints[i].getElevation() < gpspoints[i+1].getElevation()) {
+				
+			elevation = elevation + gpspoints[i+1].getElevation() - gpspoints[i].getElevation() ;
+			
+			}
+			
+		}
+		return elevation;
 
 	}
 
 	// beregn total tiden for hele turen (i sekunder)
 	public int totalTime() {
 
-		throw new UnsupportedOperationException(TODO.method());
+		int totaltid = gpspoints[gpspoints.length-1].getTime() - gpspoints[0].getTime();
 
+		return totaltid;
 	}
 		
 	// beregn gjennomsnitshastighets mellom hver av gps punktene
 
 	public double[] speeds() {
 		
-		// TODO - START		// OPPGAVE - START
+		int tabL = gpspoints.length - 1;
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		double [] snittF = new double [tabL];
+		
+		for (int i = 0; i < tabL; i++) {
+			
+			snittF[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+		}
+		return snittF;
 
 	}
 	
@@ -75,24 +83,21 @@ public class GPSComputer {
 		
 		double maxspeed = 0;
 		
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		maxspeed = GPSUtils.findMax(speeds());
 		
-		// TODO - SLUTT
-		
+		return maxspeed;
 	}
 
 	public double averageSpeed() {
 
 		double average = 0;
+		average = totalDistance() / totalTime();
 		
-		// TODO - START
+		//ganger med 3.6 fordi det er omgjøring fra meter i sekundet til km i timen!!!!!!!!!!!!!!!!!!!!!!!!
+		return average*3.6;
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-		
+
 	}
 
 	/*
@@ -107,7 +112,7 @@ public class GPSComputer {
 	// conversion factor m/s to miles per hour
 	public static double MS = 2.236936;
 
-	// beregn kcal gitt weight og tid der kjÃ¸res med en gitt hastighet
+	// beregn kcal gitt weight og tid der kjøres med en gitt hastighet
 	public double kcal(double weight, int secs, double speed) {
 
 		double kcal;
