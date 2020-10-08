@@ -11,8 +11,6 @@ public class GPSUtils {
 
 		double max = da[0]; 
 		
-	//	max = da[0];
-		
 		for (double d : da) {
 			if (d > max) {
 				max = d;
@@ -25,8 +23,6 @@ public class GPSUtils {
 	public static double findMin(double[] da) {
 
 		double min = da[0];
-		
-	//	min = da[0];
 		
 		for (double d : da) {
 			if (d < min) {
@@ -74,25 +70,43 @@ public class GPSUtils {
 
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
-
+		
 		latitude1 = gpspoint1.getLatitude();
 		longitude1 = gpspoint1.getLatitude();
 		latitude2 = gpspoint2.getLatitude();
 		longitude2 = gpspoint2.getLongitude();
+		
+		double deltaLat = toRadians(latitude2 - latitude1);
+		
+		double deltaLong = toRadians(longitude2 - longitude1);
+		
+		double a = pow(sin(deltaLat/2.0), 2) * pow(sin(deltaLong/2.0), 2)
+				* cos(toRadians(latitude1)) * cos(toRadians(latitude2));
+					 
+		
+		double c = 2.0 * (atan2(sqrt(a), sqrt(1-a)));
+		
+		d = R * c;
+		
+		return d;
 		
 
 	}
 
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
-		int secs;
-		double speed;
+		int secs = gpspoint2.getTime() - gpspoint1.getTime();
+		
+		double timer = secs/3600;
+		
+		//deler på 1000 pga returnert distance er i meter
+		double km = (distance(gpspoint1, gpspoint2))/1000;
+		
+		double speed = km/timer;
+		
+		return speed;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		
 
 	}
 
@@ -100,25 +114,61 @@ public class GPSUtils {
 
 		String timestr;
 		String TIMESEP = ":";
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		String timstr;
+		String minstr;
+		String sekstr;
 		
-		// TODO - SLUTT
+		int tim = (secs/3600);
+        int min = (secs%3600/60);
+        int sek = (secs%3600%60);
+		
+        if (tim < 10) {
+        	timstr = "0" + tim;
+        }
+        else {
+        	timstr = "" + tim;
+        }
+        
+        if (min < 10) {
+        	minstr = "0" + min;
+        }
+        else {
+        	minstr = "" + min;
+        }
+        
+        if (sek < 10) {
+        	sekstr = "0" + sek;
+        }
+        else {
+        	sekstr = "" + sek;
+        }
+        
+		timestr = "  " + timstr + TIMESEP + minstr + TIMESEP + sekstr;
+		
+		return timestr;
+		
+		
 
 	}
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
 
-		String str;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		String str = "";
+		
+		
+		double f = round(d*100)/100.0;
+		
+		String fstr = f + "";
+		
+		int p = TEXTWIDTH - fstr.length();
+		for (int i=0; i < p; i++) {
+			str += " ";
+		}
+		str += fstr;
+		
+		
+		return str;
 		
 	}
 }
