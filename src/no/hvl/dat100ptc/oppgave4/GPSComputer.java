@@ -160,17 +160,57 @@ public class GPSComputer {
 	
 	public void displayStatistics() {
 		
+		
+		
 		String tid = GPSUtils.formatTime(totalTime());
 		
-		System.out.println("==============================================");
-		System.out.println("Total time     : " + tid);
-		System.out.println("Total distance : " + GPSUtils.formatDouble(totalDistance()) + " km");
-		System.out.println("Total elevation: " + GPSUtils.formatDouble(totalElevation()) + " m");
-		System.out.println("Max speed      : " + GPSUtils.formatDouble(maxSpeed()) + " km/t");
-		System.out.println("Average speed  : " + GPSUtils.formatDouble(averageSpeed()) + " km/t");
-		System.out.println("Energy         : " + GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal");
-		System.out.println("==============================================");
+		String s =
+		"==============================================" + "\n" +
+		"Total time     : " + tid + "\n" +
+		"Total distance : " + GPSUtils.formatDouble(totalDistance()) + " km" + "\n" +
+		"Total elevation: " + GPSUtils.formatDouble(totalElevation()) + " m" + "\n" +
+		"Max speed      : " + GPSUtils.formatDouble(maxSpeed()) + " km/t" + "\n" +
+		"Average speed  : " + GPSUtils.formatDouble(averageSpeed()) + " km/t" + "\n" +
+		"Energy         : " + GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal" + "\n" +
+		"==============================================";
+		
+		System.out.print(s);
+		
+		
+		
 		
 	}
-
+	
+	public String statisticString(int i) {
+		
+	
+		String utskrift = " ";
+		String tid = GPSUtils.formatTime(totalTime());
+		if (i == 0 ) {
+		 utskrift = "==============================================" ;
+		 
+		}if (i == 1) {
+			 utskrift = "Total time     : " + tid  ;
+		}
+		if (i == 2) {
+			 utskrift = "Total distance : " + GPSUtils.formatDouble(totalDistance()) + " km" ;
+		}if (i == 3) {
+			utskrift = "Total elevation: " + GPSUtils.formatDouble(totalElevation()) + " m" ;
+		}if ( i == 4) {
+			utskrift = "Max speed      : " + GPSUtils.formatDouble(maxSpeed()) + " km/t" + "\n" ;
+		}if (i == 5) {
+			utskrift = "Average speed  : " + GPSUtils.formatDouble(averageSpeed()) + " km/t" + "\n" ;
+		}if (i==6) {
+			utskrift = "Energy         : " + GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal";
+		}if (i==7) {
+			utskrift = "==============================================";
+			
+		}
+			
+	
+					
+						
+			return utskrift;
+	}
+	
 }
