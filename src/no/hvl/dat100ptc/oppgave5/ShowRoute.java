@@ -11,8 +11,8 @@ import no.hvl.dat100ptc.oppgave4.GPSComputer;
 public class ShowRoute extends EasyGraphics {
 
 	private static int MARGIN = 50;
-	private static int MAPXSIZE = 800;
-	private static int MAPYSIZE = 800;
+	private static int MAPXSIZE = 720;
+	private static int MAPYSIZE = 360;
 
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
@@ -57,7 +57,12 @@ public class ShowRoute extends EasyGraphics {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlat= GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		 ystep = MAPYSIZE / (Math.abs(maxlat - minlat)); 
+
+		return ystep;
 
 		// TODO - SLUTT
 		
@@ -66,8 +71,21 @@ public class ShowRoute extends EasyGraphics {
 	public void showRouteMap(int ybase) {
 
 		// TODO - START
+		double y;
+		double x;
 		
-		throw new UnsupportedOperationException(TODO.method());
+		
+		
+		for (int i = 0; i < gpspoints.length; i++) {
+		y = ybase - (gpspoints[i].getLatitude() - GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints))) * ystep();
+		x =  (gpspoints[i].getLongitude() - GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints))) * xstep();
+
+		System.out.println(xstep() + " : ");
+		System.out.println(ystep() + " : ");
+		setColor(0,255,0);	
+		fillCircle((int)x,(int)y,2);
+			
+		}
 		
 		// TODO - SLUTT
 	}
@@ -81,7 +99,17 @@ public class ShowRoute extends EasyGraphics {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+	  gpscomputer.displayStatistics();	
+	
+	  
+	  for (int i = 0; i <= 7; i++) {
+		  
+		  drawString(gpscomputer.statisticString(i),0,(10*i+10));
+	  }
+
+
+	  
+		
 		
 		// TODO - SLUTT;
 	}
