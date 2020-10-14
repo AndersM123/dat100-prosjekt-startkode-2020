@@ -181,30 +181,34 @@ public class GPSComputer {
 		
 	}
 	
-	public String statisticString(int i) {
-		
+	public String statisticString(int i) {	
 	
 		String utskrift = " ";
 		String tid = GPSUtils.formatTime(totalTime());
+		
 		if (i == 0 ) {
-		 utskrift = "==============================================" ;
-		 
-		}if (i == 1) {
-			 utskrift = "Total time     : " + tid  ;
+		 utskrift = "=============================================="; 
+		}
+		if (i == 1) {
+			utskrift = "Total time     : " + tid;
 		}
 		if (i == 2) {
-			 utskrift = "Total distance : " + GPSUtils.formatDouble(totalDistance()) + " km" ;
-		}if (i == 3) {
-			utskrift = "Total elevation: " + GPSUtils.formatDouble(totalElevation()) + " m" ;
-		}if ( i == 4) {
-			utskrift = "Max speed      : " + GPSUtils.formatDouble(maxSpeed()) + " km/t" + "\n" ;
-		}if (i == 5) {
-			utskrift = "Average speed  : " + GPSUtils.formatDouble(averageSpeed()) + " km/t" + "\n" ;
-		}if (i==6) {
+			utskrift = "Total distance : " + GPSUtils.formatDouble(totalDistance()) + " m";
+		}
+		if (i == 3) {
+			utskrift = "Total elevation: " + GPSUtils.formatDouble(totalElevation()) + " m";
+		}
+		if ( i == 4) {
+			utskrift = "Max speed      : " + GPSUtils.formatDouble(maxSpeed()) + " km/t";
+		}
+		if (i == 5) {
+			utskrift = "Average speed  : " + GPSUtils.formatDouble(averageSpeed()) + " km/t";
+		}
+		if (i==6) {
 			utskrift = "Energy         : " + GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal";
-		}if (i==7) {
+		}
+		if (i==7) {
 			utskrift = "==============================================";
-			
 		}
 			
 	
